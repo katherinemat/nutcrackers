@@ -4,11 +4,11 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Collection
+namespace Nutcrackers
 {
-  public class Collection : IDisposable
+  public class NutcrackerTest : IDisposable
   {
-    public Collection()
+    public NutcrackerTest()
     {
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=collection_test;Integrated Security=SSPI;";
     }
@@ -16,13 +16,13 @@ namespace Collection
     [Fact]
     public void Test_DatabaseEmptyAtFirst()
     {
-      int result = Collection.GetAll().Count;
+      int result = Nutcracker.GetAll().Count;
       Assert.Equal(0, result);
     }
 
     public void Dispose()
     {
-      Collection.DeleteAll();
+      Nutcracker.DeleteAll();
     }
   }
 }

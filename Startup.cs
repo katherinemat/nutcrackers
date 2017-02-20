@@ -5,7 +5,7 @@ using Nancy;
 using Nancy.Owin;
 using Nancy.ViewEngines.Razor;
 
-namespace Collection
+namespace Nutcrackers
 {
   public class Startup
   {

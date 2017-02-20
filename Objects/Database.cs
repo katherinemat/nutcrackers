@@ -1,7 +1,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Collection
+namespace Nutcrackers
 {
   public class DB
   {
