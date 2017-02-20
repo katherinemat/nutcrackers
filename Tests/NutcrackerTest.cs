@@ -20,6 +20,17 @@ namespace Nutcrackers
       Assert.Equal(0, result);
     }
 
+    [Fact]
+    public void Test_Equal_ReturnsTrueIfSameName()
+    {
+      //Arrange, Act
+      Nutcracker nutcracker1 = new Nutcracker("Phil");
+      Nutcracker nutcracker2 = new Nutcracker("Phil");
+
+      //Assert
+      Assert.Equal(nutcracker1, nutcracker2);
+    }
+
     public void Dispose()
     {
       Nutcracker.DeleteAll();

@@ -15,6 +15,20 @@ namespace Nutcrackers
       _name = Name;
     }
 
+    public override bool Equals(System.Object otherNutcracker)
+    {
+      if (!(otherNutcracker is Nutcracker))
+      {
+        return false;
+      }
+      else
+      {
+        Nutcracker newNutcracker = (Nutcracker) otherNutcracker;
+        bool nameEquality = (this.GetName() == newNutcracker.GetName());
+        return (nameEquality);
+      }
+    }
+
     public int GetId()
     {
       return _id;
