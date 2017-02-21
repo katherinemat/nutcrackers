@@ -24,8 +24,9 @@ namespace Nutcrackers
       else
       {
         Nutcracker newNutcracker = (Nutcracker) otherNutcracker;
+        bool idEquality = (this.GetId() == newNutcracker.GetId());
         bool nameEquality = (this.GetName() == newNutcracker.GetName());
-        return (nameEquality);
+        return (idEquality && nameEquality);
       }
     }
 

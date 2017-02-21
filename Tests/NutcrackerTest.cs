@@ -46,6 +46,23 @@ namespace Nutcrackers
       Assert.Equal(testList, result);
     }
 
+    [Fact]
+    public void Test_Save_AssignsIdToObject()
+    {
+      //Arrange
+      Nutcracker testNutcracker = new Nutcracker("Phil");
+
+      //Act
+      testNutcracker.Save();
+      Nutcracker savedNutcracker = Nutcracker.GetAll()[0];
+
+      int result = savedNutcracker.GetId();
+      int testId = testNutcracker.GetId();
+
+      //Assert
+      Assert.Equal(testId, result);
+    }
+
     public void Dispose()
     {
       Nutcracker.DeleteAll();
