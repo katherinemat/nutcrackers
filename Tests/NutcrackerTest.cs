@@ -31,6 +31,21 @@ namespace Nutcrackers
       Assert.Equal(nutcracker1, nutcracker2);
     }
 
+    [Fact]
+    public void Test_Save_SavesToDatabase()
+    {
+      //Arrange
+      Nutcracker testNutcracker = new Nutcracker("Phil");
+
+      //Act
+      testNutcracker.Save();
+      List<Nutcracker> result = Nutcracker.GetAll();
+      List<Nutcracker> testList = new List<Nutcracker>{testNutcracker};
+
+      //Assert
+      Assert.Equal(testList, result);
+    }
+
     public void Dispose()
     {
       Nutcracker.DeleteAll();
