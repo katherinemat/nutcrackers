@@ -107,6 +107,37 @@ namespace Nutcrackers
       conn.Close();
     }
 
+    public static Nutcracker Find(int id)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM nutcrackers WHERE id = @NutcrackerId;", conn);
+      SqlParameter nutcrackerIdParameter = new SqlParameter();
+      nutcrackerIdParameter.ParameterName = "@NutcrackerId";
+      nutcrackerIdParameter.Value = id.ToString();
+      cmd.Parameters.Add(nutcrackerIdParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      int foundNutcrackerId = 0;
+      string foundNutcrackerName = null;
+      while(rdr.Read())
+      {
+        foundNutcrackerId = rdr.GetInt32(0);
+        foundNutcrackerName = rdr.GetString(1);
+      }
+      Nutcracker foundNutcracker = new Nutcracker(foundNutcrackerName, foundNutcrackerId);
+
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+      return foundNutcracker;
+    }
 
   }
 }

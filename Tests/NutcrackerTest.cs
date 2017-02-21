@@ -63,6 +63,20 @@ namespace Nutcrackers
       Assert.Equal(testId, result);
     }
 
+    [Fact]
+    public void Test_Find_FindsNutcrackerInDatabase()
+    {
+      //Arrange
+      Nutcracker testNutcracker = new Nutcracker("Phil");
+      testNutcracker.Save();
+
+      //Act
+      Nutcracker foundNutcracker = Nutcracker.Find(testNutcracker.GetId());
+
+      //Assert
+      Assert.Equal(testNutcracker, foundNutcracker);
+    }
+
     public void Dispose()
     {
       Nutcracker.DeleteAll();
