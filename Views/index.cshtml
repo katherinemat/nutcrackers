@@ -1,0 +1,35 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+  <h2>Nutcracker Collection</h2>
+</div>
+
+<h2>Input NutC Name</h2>
+
+<div class="row">
+
+  <div class="form">
+
+    <form action="/" method="post">
+      <div class="col-md-10">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name">
+      </div>
+
+      <div class="col-md-2">
+
+        <button type="submit" name="button">Let's See!</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+@if (@Model != null)
+{
+  @foreach (var name in @Model)
+  {
+    <p>@name.GetName()</p>
+  }
+}
